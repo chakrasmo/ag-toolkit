@@ -1,4 +1,4 @@
-# AGENTS.md — AntiGravity Animation Toolkit
+# AGENTS.md —  Animation Toolkit
 
 > Read this entire file before doing anything. This is the single source of truth for how this repo works and what you are expected to produce.
 
