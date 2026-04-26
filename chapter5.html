@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/palette.css">
+
+  <!-- ANIMATION ENGINE — GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- TOOLKIT CORE -->
+  <script src="scene/animate.js"></script>
+  <script src="scene/scene.js"></script>
+
+  <!-- MODULES — add/remove as needed -->
+  <script src="modules/card.js"></script>
+  <script src="modules/arrow.js"></script>
+  <script src="modules/text-elements.js"></script>
+  <script src="modules/shapes.js"></script>
+  <script src="modules/effects.js"></script>
+  <script src="modules/tech-elements.js"></script>
+
+</head>
+<body>
+
+  <!-- CANVAS — never touch this div -->
+  <div id="canvas"></div>
+
+  <!-- PLAY/RESET BUTTON -->
+  <button id="play">▶</button>
+
+  <script>
+  const scene = new Scene()
+
+  function fadeOutPrevious(duration = 0.5) {
+    return {
+      render: () => {},
+      animate: () => {
+        document.querySelectorAll('#canvas > *:not(#play):not(#svg-layer)').forEach(el => {
+          gsap.to(el, { opacity: 0, duration });
+        });
+      }
+    };
+  }
+
+  // ================================================================
+  //  SCENE 1: chapter5_scene1
+  //  Voice starts at 480ms -> trigger at 0ms
+  // ================================================================
+  scene.add(new Img({
+    src: "wk_inputs/chapter5_scene1.png",
+    x: 260, y: 140, width: 1400,
+    animation: "scalePop",
+    loop: "breathe"
+  }), { at: 0 })
+
+  // Fade out Scene 1
+  scene.add(fadeOutPrevious(), { at: 1980 })
+
+  // ================================================================
+  //  SCENE 2: chapter5_scene2
+  //  Voice starts at 2980ms -> trigger at 2480ms
+  // ================================================================
+  scene.add(new Img({
+    src: "wk_inputs/chapter5_scene2.png",
+    x: 260, y: 140, width: 1400,
+    animation: "slideInRight",
+    loop: "float"
+  }), { at: 2480 })
+
+  // Final fade
+  scene.add(fadeOutPrevious(1.0), { at: 18320 })
+
+  scene.play()
+  </script>
+
+</body>
+</html>
