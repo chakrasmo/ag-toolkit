@@ -1,0 +1,59 @@
+/* ============================================
+   BASE.CSS — Canvas, font, resets
+   Never modify this file per-scene
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Caveat', cursive;
+}
+
+body {
+  background: #141414;
+  overflow: hidden;
+  width: 1920px;
+  height: 1080px;
+}
+
+#canvas {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: #141414;
+}
+
+/* Play / Reset button */
+#play {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 52px;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: background 0.2s;
+}
+#play:hover { background: rgba(255,255,255,0.28); }
+
+/* SVG overlay layer for all arrows */
+#svg-layer {
+  position: absolute;
+  top: 0; left: 0;
+  width: 1920px;
+  height: 1080px;
+  pointer-events: none;
+  z-index: 10;
+}

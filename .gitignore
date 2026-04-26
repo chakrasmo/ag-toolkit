@@ -1,0 +1,18 @@
+# Ignore all contents of temp/output folders, but keep the folder anchors
+videos/*
+wk_outputs/*
+!videos/.gitkeep
+!wk_outputs/.gitkeep
+
+# WebM raw captures (Playwright temp files)
+*.webm
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,155 @@
+1
+00:00:01,029 --> 00:00:02,550
+Let's start from the beginning.
+
+2
+00:00:03,210 --> 00:00:05,250
+Web coding is basically a way of building
+
+3
+00:00:05,250 --> 00:00:08,010
+software where you don't write every single line
+
+4
+00:00:08,010 --> 00:00:08,870
+of code yourself.
+
+5
+00:00:09,430 --> 00:00:11,850
+Instead, you just describe what you want in
+
+6
+00:00:11,850 --> 00:00:14,410
+plain English and the AI writes the code
+
+7
+00:00:14,410 --> 00:00:14,850
+for you.
+
+8
+00:00:15,490 --> 00:00:17,890
+You're still in control, you're guiding it, but
+
+9
+00:00:17,890 --> 00:00:20,870
+the actual typing and syntax is handled by
+
+10
+00:00:20,870 --> 00:00:21,410
+the AI.
+
+11
+00:00:22,170 --> 00:00:25,570
+The term was coined in early 2025 by
+
+12
+00:00:25,570 --> 00:00:28,830
+Andrej Karapathy, who used to lead AI at
+
+13
+00:00:28,830 --> 00:00:30,870
+Tesla and is also one of the founding
+
+14
+00:00:30,870 --> 00:00:32,190
+members of OpenAI.
+
+15
+00:00:33,170 --> 00:00:36,130
+He described his workflow pretty casually, something like,
+
+16
+00:00:36,750 --> 00:00:39,550
+I just see things, say things, run things,
+
+17
+00:00:39,650 --> 00:00:40,710
+and it mostly works.
+
+18
+00:00:41,010 --> 00:00:44,110
+That line stuck, and within weeks, everyone in
+
+19
+00:00:44,110 --> 00:00:46,570
+the development world was talking about web coding.
+
+20
+00:00:47,250 --> 00:00:50,270
+And by 2026, it stopped being just talk,
+
+21
+00:00:50,590 --> 00:00:51,390
+it became real.
+
+22
+00:00:51,390 --> 00:00:55,190
+Most developers now use AI coding tools daily.
+
+23
+00:00:55,830 --> 00:00:58,250
+Colin's dictionary even named it word of the
+
+24
+00:00:58,250 --> 00:00:58,650
+year.
+
+25
+00:00:59,150 --> 00:01:01,610
+Harvard is teaching it, and there's a dedicated
+
+26
+00:01:01,610 --> 00:01:06,050
+workshop called WebEx 2026 at major software engineering
+
+27
+00:01:06,050 --> 00:01:06,670
+conferences.
+
+28
+00:01:07,250 --> 00:01:09,530
+This isn't just hype anymore, it's a real
+
+29
+00:01:09,530 --> 00:01:11,510
+shift in how software is being built.
+
+30
+00:01:12,130 --> 00:01:14,030
+But here is the thing, web coding isn't
+
+31
+00:01:14,030 --> 00:01:16,150
+magic, and it doesn't replace thinking.
+
+32
+00:01:16,630 --> 00:01:18,950
+You're not just pressing a button and letting
+
+33
+00:01:18,950 --> 00:01:21,010
+AI build your startup while you sleep.
+
+34
+00:01:21,510 --> 00:01:23,410
+What's really changing is how you work.
+
+35
+00:01:23,730 --> 00:01:26,210
+Instead of writing code line by line, you're
+
+36
+00:01:26,210 --> 00:01:28,430
+telling the system what you want, you're giving
+
+37
+00:01:28,430 --> 00:01:30,770
+direction, and what you get out depends a
+
+38
+00:01:30,770 --> 00:01:32,730
+lot on how clearly you explain what you
+
+39
+00:01:32,730 --> 00:01:32,970
+need.

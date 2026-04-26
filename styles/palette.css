@@ -1,0 +1,58 @@
+/* ============================================
+   PALETTE.CSS — All colors as CSS variables
+   Use these everywhere — never hardcode colors
+   ============================================ */
+
+:root {
+  /* Background */
+  --bg:           #141414;
+
+  /* Card fills */
+  --blue:         #93c5fd;
+  --blue-dark:    #1e3a5f;
+  --purple:       #a78bfa;
+  --purple-dark:  #7c3aed;
+  --green:        #6ee7b7;
+  --green-dark:   #065f46;
+  --yellow:       #f5e6a3;
+  --yellow-dark:  #92741a;
+  --amber:        #fcd34d;
+  --red:          #991b1b;
+  --red-dark:     #7f1d1d;
+  
+  /* New Vibrant Colors */
+  --cyan:         #22d3ee;
+  --cyan-dark:    #0891b2;
+  --pink:         #f472b6;
+  --pink-dark:    #db2777;
+  --teal:         #2dd4bf;
+  --teal-dark:    #0d9488;
+  --orange:       #fb923c;
+  --orange-dark:  #c2410c;
+  --indigo:       #818cf8;
+  --indigo-dark:  #4f46e5;
+
+  --dark:         #1f1f1f;
+  --darker:       #161616;
+
+  /* Text */
+  --text-white:   #ffffff;
+  --text-dark:    #1a1a1a;
+  --text-muted:   #888888;
+
+  /* Borders */
+  --border-white: rgba(255,255,255,0.6);
+  --border-yellow: #f5e6a3;
+
+  /* Glows */
+  --glow-blue:    rgba(147, 197, 253, 0.35);
+  --glow-purple:  rgba(167, 139, 250, 0.35);
+  --glow-green:   rgba(110, 231, 183, 0.35);
+  --glow-yellow:  rgba(245, 230, 163, 0.35);
+  --glow-red:     rgba(153, 27, 27, 0.5);
+  --glow-white:   rgba(255, 255, 255, 0.2);
+
+  /* Arrows */
+  --arrow-color:  #ffffff;
+  --arrow-width:  2.5px;
+}

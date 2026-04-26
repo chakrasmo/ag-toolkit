@@ -1,0 +1,17 @@
+
+------------------------------------------------------------
+[CHAPTER 1: WHAT IS VIBE CODING?]
+------------------------------------------------------------
+
+Let’s start from the beginning.
+
+Vibe coding is basically a way of building software where you don’t write every single line of code yourself. Instead, you just describe what you want in plain English, and the AI writes the code for you. You’re still in control, you’re guiding it, but the actual typing and syntax is handled by the AI.
+
+The term was coined in early 2025 by Andrej Karpathy, who used to lead AI at Tesla and is also one of the founding members of OpenAI. He described his workflow pretty casually, something like, “I just see things, say things, run things, and it mostly works.” That line stuck, and within weeks, everyone in the dev world was talking about vibe coding.
+
+And by 2026, it stopped being just talk. It became real. Most developers now use AI coding tools daily. Collins Dictionary even named it Word of the Year. Harvard is teaching it, and there’s a dedicated workshop called VibeX 2026 at major software engineering conferences. This isn’t just hype anymore. It’s a real shift in how software is being built.
+
+But here’s the thing. Vibe coding isn’t magic, and it doesn’t replace thinking. You’re not just pressing a button and letting AI build your startup while you sleep. What’s really changing is how you work. Instead of writing code line by line, you’re telling the system what you want. You’re giving direction. And what you get out depends a lot on how clearly you explain what you need.
+
+
+

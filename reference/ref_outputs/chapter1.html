@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/palette.css">
+
+  <!-- ANIMATION ENGINE — GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- TOOLKIT CORE -->
+  <script src="scene/animate.js"></script>
+  <script src="scene/scene.js"></script>
+
+  <!-- MODULES -->
+  <script src="modules/card.js"></script>
+  <script src="modules/arrow.js"></script>
+  <script src="modules/text-elements.js"></script>
+  <script src="modules/shapes.js"></script>
+  <script src="modules/effects.js"></script>
+  <script src="modules/tech-elements.js"></script>
+
+</head>
+<body>
+
+  <!-- CANVAS -->
+  <div id="canvas"></div>
+
+  <!-- PLAY/RESET BUTTON -->
+  <button id="play">▶</button>
+
+  <script>
+  const scene = new Scene()
+
+  // Transition Helper: fades out previous elements
+  function fadeOutPrevious(duration = 0.5) {
+    return {
+      render: () => {}, // empty render
+      animate: () => {
+        document.querySelectorAll('#canvas > *:not(#play):not(#svg-layer)').forEach(el => {
+          gsap.to(el, { opacity: 0, duration: duration });
+        });
+      }
+    };
+  }
+
+  // ================================================================
+  //  SCENE 1 (srt: 00:00:01,029) => trigger at ~500ms
+  // ================================================================
+  scene.add(new Img({
+    src: "wk_inputs/chapter1_scene1.png",
+    x: 260, y: 140, width: 1400,
+    animation: "scalePop",
+    loop: "breathe"
+  }), { at: 500 })
+
+  // Fade out Scene 1
+  scene.add(fadeOutPrevious(), { at: 21170 })
+
+  // ================================================================
+  //  SCENE 2 (srt: 00:00:22,170) => trigger at 21,670ms
+  // ================================================================
+  scene.add(new Img({
+    src: "wk_inputs/chapter1_scene2.png",
+    x: 260, y: 140, width: 1400,
+    animation: "slideInRight",
+    loop: "float"
+  }), { at: 21670 })
+
+  // Fade out Scene 2
+  scene.add(fadeOutPrevious(), { at: 46250 })
+
+  // ================================================================
+  //  SCENE 3.1 (srt: 00:00:47,250) => trigger at 46,750ms
+  // ================================================================
+  scene.add(new Img({
+    src: "wk_inputs/chapter1_scene3_1.png",
+    x: 260, y: 140, width: 1400,
+    animation: "fadeIn",
+    loop: "breathe"
+  }), { at: 46750 })
+
+  // Fast fade out Scene 3.1
+  scene.add(fadeOutPrevious(0.2), { at: 55130 })
+
+
+  // ================================================================
+  //  SCENE 3.2 (srt: 00:00:55,830) => trigger at 55,330ms
+  // ================================================================
+  scene.add(new Img({
+    src: "wk_inputs/chapter1_scene3_2.png",
+    x: 360, y: 140, width: 1200,
+    animation: "scalePop",
+    loop: "float"
+  }), { at: 55330 })
+
+  // Fast fade out Scene 3.2
+  scene.add(fadeOutPrevious(0.2), { at: 58450 })
+
+
+  // ================================================================
+  //  SCENE 3.3 (srt: 00:00:59,150) => trigger at 58,650ms
+  // ================================================================
+  scene.add(new Img({
+    src: "wk_inputs/chapter1_scene3_3.png",
+    x: 360, y: 140, width: 1200,
+    animation: "scalePop",
+    loop: "float"
+  }), { at: 58650 })
+
+  // Fast fade out Scene 3.3
+  scene.add(fadeOutPrevious(0.2), { at: 60910 })
+
+
+  // ================================================================
+  //  SCENE 3.4 (srt: 00:01:01,610) => trigger at 61,110ms
+  // ================================================================
+  scene.add(new Img({
+    src: "wk_inputs/chapter1_scene3_4.png",
+    x: 360, y: 140, width: 1200,
+    animation: "scalePop",
+    loop: "float"
+  }), { at: 61110 })
+
+  // Fade out Scene 3.4
+  scene.add(fadeOutPrevious(0.2), { at: 66550 })
+
+
+  // ================================================================
+  //  SCENE 3.1 RETURN (srt: 00:01:07,250) => trigger at 66,750ms
+  // ================================================================
+  scene.add(new Img({
+    src: "wk_inputs/chapter1_scene3_1.png",
+    x: 260, y: 140, width: 1400,
+    animation: "slideInLeft",
+    loop: "breathe"
+  }), { at: 66750 })
+
+  // Fade out 3.1 Return
+  scene.add(fadeOutPrevious(), { at: 71130 })
+
+
+  // ================================================================
+  //  SCENE 4 (srt: 00:01:12,130) => trigger at 71,630ms
+  // ================================================================
+  scene.add(new Img({
+    src: "wk_inputs/chapter1_scene4.png",
+    x: 260, y: 140, width: 1400,
+    animation: "fadeIn",
+    loop: "breathe"
+  }), { at: 71630 })
+
+  // Final padding (Scene 4 ends around 92970)
+  scene.add(fadeOutPrevious(1.0), { at: 93000 })
+
+  scene.play()
+
+  </script>
+</body>
+</html>

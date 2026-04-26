@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/palette.css">
+
+  <!-- ANIMATION ENGINE — GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- TOOLKIT CORE -->
+  <script src="scene/animate.js"></script>
+  <script src="scene/scene.js"></script>
+
+  <!-- MODULES — add/remove as needed -->
+  <script src="modules/card.js"></script>
+  <script src="modules/arrow.js"></script>
+  <script src="modules/text-elements.js"></script>
+  <script src="modules/shapes.js"></script>
+  <script src="modules/effects.js"></script>
+  <script src="modules/tech-elements.js"></script>
+
+</head>
+<body>
+
+  <!-- CANVAS — never touch this div -->
+  <div id="canvas"></div>
+
+  <!-- PLAY/RESET BUTTON -->
+  <button id="play">▶</button>
+
+  <script>
+  // ================================================================
+  //  SCENE SETUP
+  //  Change sceneStart to match your first subtitle timestamp
+  // ================================================================
+  const sceneStart = "00:00:00,000"
+  const scene = new Scene()
+
+  // ================================================================
+  //  YOUR SCENE — add modules below
+  //  { at: N } = milliseconds from scene start
+  //
+  //  TIP: Use Scene.offset("00:01:23,456", sceneStart)
+  //       to calculate timing from SRT timestamps
+  // ================================================================
+
+  scene
+    .add(new Title("Your Title Here"), { at: 0 })
+
+    // Examples — uncomment and edit:
+
+    // .add(new Card({
+    //   text: "My Card",
+    //   icon: "💡",
+    //   color: "blue",        // see MODULES.md 🎨 COLOR NAMES for all options
+    //   x: 300, y: 400,
+    //   id: "card1",
+    //   animation: "scalePop" // see MODULES.md for all options
+    // }), { at: 500 })
+
+    // .add(new Arrow({
+    //   from: "card1", fromSide: "right",
+    //   to: "card2",   toSide: "left",
+    //   type: "straight",  // "straight"|"curved"|"arc"|"elbow"
+    //   color: "white",
+    //   label: "+ details 🔍"
+    // }), { at: 1200 })
+
+    // .add(new Tagline("Your bottom message here"), { at: 3000 })
+
+    .play()
+
+  // ================================================================
+  //  END OF SCENE
+  // ================================================================
+  </script>
+
+</body>
+</html>
