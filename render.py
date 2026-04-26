@@ -22,10 +22,10 @@ def parse_args():
     parser.add_argument("--html", required=True, help="Path to the HTML file (e.g., chapter1.html)")
     parser.add_argument("--audio", default=None, help="Path to the audio file (e.g., wk_inputs/chapter1_audio.wav)")
     parser.add_argument("--output", default=None, help="Output MP4 path (e.g., wk_outputs/chapter1_final.mp4)")
-    parser.add_argument("--duration", type=int, required=True, help="Recording duration in seconds")
+    parser.add_argument("--duration", type=int, help="Recording duration in seconds (overridden if audio file is provided)")
     return parser.parse_args()
 
-async def render(html_path, duration):
+async def render(html_path, duration, audio_path=None):
     # Convert relative path to file:// URL
     abs_html = os.path.abspath(html_path)
     html_url = "file:///" + abs_html.replace("\\", "/")
@@ -45,10 +45,32 @@ async def render(html_path, duration):
         print(f"Loading {html_url}")
         print(f"Recording for {duration} seconds. Please wait...")
         
-        # Load the HTML file — animations start automatically
+        # Load the HTML file
         await page.goto(html_url)
         
-        # Hide the play button so it doesn't appear in the rendered video
+        if audio_path and os.path.exists(audio_path):
+            abs_audio = os.path.abspath(audio_path)
+            audio_url = "file:///" + abs_audio.replace("\\", "/")
+            await page.evaluate(f"""() => {{
+                const audio = document.createElement('audio');
+                audio.src = '{audio_url}';
+                document.body.appendChild(audio);
+                const playBtn = document.getElementById('play');
+                if (playBtn) {{
+                    playBtn.addEventListener('click', () => audio.play().catch(e => console.error('Audio play failed', e)));
+                }} else {{
+                    audio.play().catch(e => console.error('Audio play failed', e));
+                }}
+            }}""")
+
+        # Click the play button immediately after the page loads
+        await page.click("#play")
+
+        if audio_path and os.path.exists(audio_path):
+            # Wait for the audio element to actually start playing
+            await page.wait_for_function("document.querySelector('audio') && !document.querySelector('audio').paused")
+
+        # Hide the play button so it doesn't appear in the rendered video if it still exists
         await page.evaluate("document.getElementById('play')?.remove()")
         
         # Wait for the full animation duration
@@ -81,6 +103,10 @@ def stitch(video_path, audio_path, output_path):
     print(f"Exporting to {output_path} (this may take a minute)...")
     video_clip.write_videofile(output_path, fps=60, codec="libx264", audio_codec="aac")
     
+    video_clip.close()
+    if 'audio_clip' in locals():
+        audio_clip.close()
+
     print("=========================================")
     print(f"DONE! Final video ready: {output_path}")
     print("=========================================")
@@ -101,5 +127,21 @@ if __name__ == "__main__":
     # Ensure output directory exists
     os.makedirs(os.path.dirname(output), exist_ok=True)
         
-    raw_video = asyncio.run(render(args.html, args.duration))
+    render_duration = args.duration
+
+    # If audio is provided, force duration to match the audio exactly
+    if args.audio and os.path.exists(args.audio):
+        from moviepy import AudioFileClip
+        try:
+            with AudioFileClip(args.audio) as audio_clip:
+                render_duration = audio_clip.duration
+            print(f"Audio file found. Forcing render duration to {render_duration:.2f} seconds to match audio.")
+        except Exception as e:
+            print(f"Warning: Could not read audio duration. Using default duration. Error: {e}")
+
+    if not render_duration:
+        print("Error: No duration provided and could not determine duration from audio.")
+        sys.exit(1)
+
+    raw_video = asyncio.run(render(args.html, render_duration, args.audio))
     stitch(raw_video, args.audio, output)
