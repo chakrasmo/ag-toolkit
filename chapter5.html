@@ -32,27 +32,22 @@
   <button id="play">▶</button>
 
   <script>
-  // ================================================================
-  //  SCENE SETUP
-  //  Change sceneStart to match your first subtitle timestamp
-  // ================================================================
-  const sceneStart = "00:00:00,000"
   const scene = new Scene()
 
-  // Transition Helper: fades out previous elements
   function fadeOutPrevious(duration = 0.5) {
     return {
-      render: () => {}, // empty render
+      render: () => {},
       animate: () => {
         document.querySelectorAll('#canvas > *:not(#play):not(#svg-layer)').forEach(el => {
-          gsap.to(el, { opacity: 0, duration: duration });
+          gsap.to(el, { opacity: 0, duration });
         });
       }
     };
   }
 
   // ================================================================
-  //  SCENE 1 (srt: 00:00:00,480) => trigger at ~0ms
+  //  SCENE 1: chapter5_scene1
+  //  Voice starts at 480ms -> trigger at 0ms
   // ================================================================
   scene.add(new Img({
     src: "wk_inputs/chapter5_scene1.png",
@@ -66,11 +61,12 @@
     animation: "fadeIn"
   }), { at: 0 })
 
-  // Fade out Scene 1 (500ms before Scene 2)
+  // Fade out Scene 1
   scene.add(fadeOutPrevious(0.8), { at: 1980 })
 
   // ================================================================
-  //  SCENE 2 (srt: 00:00:02,980) => trigger at 2480ms
+  //  SCENE 2: chapter5_scene2
+  //  Voice starts at 2980ms -> trigger at 2480ms
   // ================================================================
   scene.add(new Img({
     src: "wk_inputs/chapter5_scene2.png",
@@ -84,14 +80,10 @@
     borderColor: "cyan"
   }), { at: 3000 })
 
-  // Fade out Scene 2 at the end
-  scene.add(fadeOutPrevious(1.0), { at: 18000 })
+  // Final fade
+  scene.add(fadeOutPrevious(1.0), { at: 18320 })
 
   scene.play()
-
-  // ================================================================
-  //  END OF SCENE
-  // ================================================================
   </script>
 
 </body>
